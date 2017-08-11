@@ -14,10 +14,17 @@ django-admin startapp $APP_NAME
 cd $APP_NAME
 
 # create/copy the static and template folders/files within app specific sub folders
+code -n $SPTH'/'$PROJECT_NAME
 mkdir templates templates/$APP_NAME
 cp ~/Dev/Shell/create_django_project/resources/index.html templates/$APP_NAME/index.html
-code -n templates/$APP_NAME/index.html
+sed -i "13i\    <link rel='stylesheet' type='text/css' href='{% static \""$APP_NAME"/style.css\" %}' />" templates/$APP_NAME/index.html
+
+# <link rel="stylesheet" type="text/css" href="{% static 'time_app/style.css' %}" />
+
 mkdir static static/$APP_NAME
+cp ~/Dev/Shell/create_django_project/resources/style.css static/$APP_NAME/style.css
+code templates/$APP_NAME/index.html
+code static/$APP_NAME/style.css
 cd $SPTH
 
 # prep the url links for the project and app levels
@@ -37,9 +44,10 @@ code './'$PROJECT_NAME'/'$PROJECT_NAME'/settings.py'
 code './'$PROJECT_NAME'/'$PROJECT_NAME'/urls.py'
 code './'$PROJECT_NAME'/apps/'$APP_NAME'/urls.py'
 code './'$PROJECT_NAME'/apps/'$APP_NAME'/views.py'
-code './'$PROJECT_NAME
+
+cd './'$PROJECT_NAME
 # start server & render basic index.html
-python $PROJECT_NAME'/manage.py' runserver
+python manage.py runserver
 
 
 
