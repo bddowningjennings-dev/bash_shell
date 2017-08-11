@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.head {
+  display: inline-block;
+  height: 80px;
+  width: 500px;
+  background-color: mediumaquamarine;
+  margin: 40px 700px;
+  font-size: 30px;
+  color: whitesmoke;
+  text-align: center;
+  padding-top: 40px;
+}
+.timebox {
+  display: inline-block;
+  height: 300px;
+  width: 330px;
+  margin: 0 auto;
+  background-color: mediumaquamarine;
+  margin: 0 700px;
+  padding-left: 170px;
+  padding-top:  180px;
+}
+.time {
+  font-size: 30px;
+  color: whitesmoke;
+}
